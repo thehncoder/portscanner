@@ -22,10 +22,21 @@ po=input("enter how many ports")
 if ',' in t:
     print("scanning multiple ports")
     for ip_addr in t.split(","):
-        scan
+        scan(ip_addr.split(" "),po
+else:
+    scan(t,po)
         
         
     
+
+
+
+
+
+
+
+
+
 
 
 
