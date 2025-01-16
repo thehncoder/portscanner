@@ -1,6 +1,8 @@
 import socket
 import termcolor
 
-sock=socket.socket()#creates a socket
-sock.connect((ip address,port))#connection succeded 
+def scan_port(IP address,port):
+   try:
+       sock=socket.socket()#creates a socket
+       sock.connect((IP address,port))#connection succeded 
 
