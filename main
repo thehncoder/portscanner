@@ -1,2 +1,5 @@
 import socket
-import termcolour
+import termcolor
+
+sock=socket.socket()
+sock.connect(())
