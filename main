@@ -2,7 +2,16 @@ import socket
 import termcolor
 
 def scan_port(IP address,port):
-   try:
+  try:
        sock=socket.socket()#creates a socket
-       sock.connect((IP address,port))#connection succeded 
+       sock.connect((IP address,port))#connection succeded
+       print("Connecting",port,"port number....")
+       print("YES! THE PORT IS OPEN")
+  except:
+      print("Connecting",port,"port number....")
+      print("NO! THE PORT IS CLOSED")
+
+
+
+
 
