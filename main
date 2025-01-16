@@ -10,6 +10,7 @@ def scan_port(IP address,port):
   except:
       print("Connecting",port,"port number....")
       print("NO! THE PORT IS CLOSED")
+t=input("enter the target for scanning")
 
 
 
