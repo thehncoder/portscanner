@@ -1,5 +1,6 @@
 import socket
 import termcolor
 
-sock=socket.socket()
-sock.connect(())
+sock=socket.socket()#creates a socket
+sock.connect((ip address,port))#connection succeded 
+
