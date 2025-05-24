@@ -1,8 +1,8 @@
-import socket
-import termcolor
+import socket#
+import termcolo  #used here to color the terminal output
 
 def scan_port(IP address,port):
-  try:
+  try:# I used it here to silently pass the error while scanning
        sock=socket.socket()#creates a socket
        sock.connect((IP address,port))#connection succeded
        print("Connecting",port,"port number....")
@@ -22,7 +22,7 @@ po=input("enter how many ports")
 if ',' in t:
     print("scanning multiple ports")
     for ip_addr in t.split(","):
-        scan(ip_addr.split(" "),po
+        scan(ip_addr.split(" "),po)
 else:
     scan(t,po)
         
