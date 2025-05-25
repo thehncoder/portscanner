@@ -1,0 +1,7 @@
+socket library
+The socket library in Python creates network connections and handles communication between devices over a network. 
+It provides the functionality to work with both the Transmission Control Protocol (TCP) and the User Datagram Protocol (UDP), which are fundamental for networking tasks
+
+termcolor library
+The termcolor library in Python is used to add colored text to terminal outputs. 
+It helps make the output more visually appealing or emphasize important information like warnings, errors, or highlights.
