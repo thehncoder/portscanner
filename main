@@ -7,16 +7,16 @@ def scan_port(ip_address, port):
         sock = socket.socket()
         sock.settimeout(0.5) #to avoid longwaits
         sock.connect((ip_address, port))  #Attempt to connect to the target IP and port
-        print(f"Connecting to port {port}...")
+        print("Connecting to port...")
         print(termcolor.colored("YES! THE PORT IS OPEN", 'green'))
         sock.close()#close the connection
     except:
-        print(f"Connecting to port {port}...")
+        print("Connecting to port ...")
         print(termcolor.colored("NO! THE PORT IS CLOSED", 'red'))
 
 # Scan multiple ports on a given IP
 def scan(target, port_limit):
-    print(f"\n--- Starting scan on {target} ---")
+    print("\n--- Starting scan on {target} ---")
     for port in range(1, port_limit): #Loop through ports 1 to (port_limit - 1)
         scan_port(target, port) #call scan_port for each port
 
