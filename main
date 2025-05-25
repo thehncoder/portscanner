@@ -1,47 +1,33 @@
-import socket#
-import termcolo  #used here to color the terminal output
+import socket #library that allows us to enable TCP connections
+import termcolor #library to print coloured output
 
-def scan_port(IP address,port):
-  try:# I used it here to silently pass the error while scanning
-       sock=socket.socket()#creates a socket
-       sock.connect((IP address,port))#connection succeded
-       print("Connecting",port,"port number....")
-       print("YES! THE PORT IS OPEN")
-  except:
-      print("Connecting",port,"port number....")
-      print("NO! THE PORT IS CLOSED")
+# Scan a single port on a given IP
+def scan_port(ip_address, port):
+    try:
+        sock = socket.socket()
+        sock.settimeout(0.5) #to avoid longwaits
+        sock.connect((ip_address, port))  #Attempt to connect to the target IP and port
+        print(f"Connecting to port {port}...")
+        print(termcolor.colored("YES! THE PORT IS OPEN", 'green'))
+        sock.close()#close the connection
+    except:
+        print(f"Connecting to port {port}...")
+        print(termcolor.colored("NO! THE PORT IS CLOSED", 'red'))
 
-def scan(t,p):
-      for p in range(1,p)
-      scan_port(target,p)
-      
-     
-    
-t=input("enter the targets for scanning (separate multiple targets by comma(,)")
-po=input("enter how many ports")
-if ',' in t:
-    print("scanning multiple ports")
-    for ip_addr in t.split(","):
-        scan(ip_addr.split(" "),po)
+# Scan multiple ports on a given IP
+def scan(target, port_limit):
+    print(f"\n--- Starting scan on {target} ---")
+    for port in range(1, port_limit): #Loop through ports 1 to (port_limit - 1)
+        scan_port(target, port) #call scan_port for each port
+
+# Get input from the user
+targets = input("Enter the targets for scanning (separate multiple targets by comma): ")
+port_count = int(input("Enter how many ports you want to scan: "))
+
+# Decide if scanning single or multiple targets
+if ',' in targets:
+    print(termcolor.colored("Scanning multiple targets...", 'cyan'))
+    for ip in targets.split(','):#split into individual IP's
+        scan(ip.strip(), port_count)#remove any extra spaces
 else:
-    scan(t,po)
-        
-        
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    scan(targets.strip(), port_count)
